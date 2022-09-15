@@ -10,6 +10,8 @@ auth = Blueprint('auth', __name__)
 def login():
 	email = request.form.get('email')
 	password = request.form.get('password')
+	email = str(email)
+	l = len(email)
 
 	user = User.query.filter_by(email=email).first()
 	if user :
@@ -18,9 +20,9 @@ def login():
 			login_user(user , remember=True)
 			return redirect(url_for('views.home'))
 		else:
-			flash('Incorrect Password , Try again', category='error')
+			flash('Incorrect Email or Password , Try again', category='error')
 	else:
-		flash('Email don\'t exist please signup ', category='error')
+		pass
 
 
 	return render_template("login.html", user= current_user)
