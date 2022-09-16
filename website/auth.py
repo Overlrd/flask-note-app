@@ -42,7 +42,6 @@ def signup():
 		password2 = request.form.get('password2')
 	
 		user = User.query.filter_by(email=email).first()
-		print('querying')
 		if user:
 			flash('Email already exists', category='error')
 
@@ -60,7 +59,7 @@ def signup():
 			db.session.add(new_user)
 			db.session.commit()
 			flash('Account created !', category='success')
-			login_user(user , remember=True)
-			return redirect(url_for('views.home'))
+			login_user(new_user , remember=True)
+			return redirect(url_for('auth.login'))
 
 	return render_template("signup.html", user=current_user)
