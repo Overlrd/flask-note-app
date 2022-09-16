@@ -1,5 +1,7 @@
-# flask-note-app
-Keep your notes organized online
+# [flask-note-app](https://flask-note-app-0.herokuapp.com/)
+Keep your notes organized online.
+<br/>
+Check it [Here](https://flask-note-app-0.herokuapp.com/).
 
 A very simple note app all in Flask.
 Users can create accounts and add or delete notes.
